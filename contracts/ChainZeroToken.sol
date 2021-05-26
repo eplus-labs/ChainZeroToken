@@ -1,12 +1,12 @@
 pragma solidity >0.4.2;
 
 contract ChainZeroToken {
-    // Constructor
-    // Set the total number of tokens
-    // Read the total number of tokens
     uint256 public totalSupply;
 
-    constructor() public {
-        totalSupply = 1000000;
+    mapping(address => uint256) public balanceOf;
+
+    constructor(uint256 _initialSupply) public {
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
     }
 }
